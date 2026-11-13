@@ -155,17 +155,18 @@
   }
   /* ---------- grocery list (everything scheduled in the meal plan) ---------- */
   const AISLES = [
-    ["Produce", /\b(onion|shallot|garlic|ginger|tomato|bell pepper|peppers?\b|chil[ei]|jalape|lettuce|spinach|kale|cabbage|carrot|potato|yam|cassava|plantain|banana|apple|mango|pineapple|papaya|berr|lemon|lime|orange|avocado|cucumber|zucchini|squash|pumpkin|eggplant|aubergine|mushroom|broccoli|cauliflower|sprout|celery|leek|scallion|green onion|herbs?\b|cilantro|parsley|mint|basil|dill|okra|corn\b|peas?\b|greens|chard|beet|radish|fruit|dates?\b|figs?\b|grape|melon|lemongrass|leaves|salad|veg)/i],
-    ["Meat & seafood", /\b(chicken|beef|steak|pork|lamb|mutton|goat|turkey|duck|sausage|bacon|ham\b|mince|ground|fish|salmon|tuna|cod\b|tilapia|shrimp|prawn|crab|squid|octopus|mussel|clam|seafood|sardine|anchov|mackerel|veal|liver|chorizo)/i],
-    ["Dairy & eggs", /\b(eggs?\b|milk|yogurt|yoghurt|cheese|feta|paneer|halloumi|labneh|butter|ghee|cream|kefir|skyr|ricotta|mozzarella|parmesan|quark|curd|whey|protein powder)/i],
+    ["Produce", /\b(onion|shallot|garlic|ginger|tomato|bell pepper|peppers?\b|chil[ei]|jalape|lettuce|spinach|kale|cabbage|carrot|potato|yam|cassava|plantain|banana|apple|mango|pineapple|papaya|berr|lemon|lime|orange|avocado|cucumber|zucchini|squash|pumpkin|eggplant|aubergine|mushroom|broccoli|cauliflower|sprout|celery|leek|scallion|green onion|herbs?\b|cilantro|parsley|mint|basil|dill|okra|corn\b|peas?\b|greens|chard|beet|radish|fruit|dates?\b|figs?\b|grape|melon|lemongrass|leaves|salad|veg|callaloo|bok choy|collard|amarillo|scotch bonnet|peach|pear|plum|kiwi|guava|passion fruit|breadfruit|taro|sweet potato)/i],
+    ["Meat & seafood", /\b(chicken|beef|steak|pork|lamb|mutton|goat|turkey|duck|sausage|bacon|ham\b|mince|ground|fish|salmon|tuna|cod\b|tilapia|shrimp|prawn|crab|squid|octopus|mussel|clam|seafood|sardine|anchov|mackerel|veal|liver|chorizo|sea bass|snapper|mahi|haddock|hake|barramundi|grouper|bream|trout|corvina|char\b|catfish|saltfish|halibut)/i],
+    ["Dairy & eggs", /\b(eggs?\b|milk|yogurt|yoghurt|cheese|feta|paneer|halloumi|labneh|butter|ghee|cream|kefir|skyr|ricotta|mozzarella|parmesan|quark|curd|whey|protein powder|cheddar|gouda|gruy|emmental|edam|manchego|jarlsberg|havarti|queso|sulguni|minas)/i],
     ["Tofu, beans & legumes", /\b(tofu|tempeh|edamame|chickpea|lentil|beans?\b|dal\b|split pea|seitan|hummus)/i],
     ["Grains, bread & pasta", /\b(rice|quinoa|oats?\b|oatmeal|bread|pita|tortilla|wrap|flour|pasta|noodle|couscous|bulgur|barley|millet|teff|injera|sorghum|polenta|cornmeal|semolina|buckwheat|roti|naan|bun|cracker|granola|cereal)/i],
     ["Nuts, seeds & dried", /\b(nuts?\b|almond|cashew|walnut|pistachio|peanut|sesame|tahini|seeds?\b|chia|flax|raisin|dried)/i],
     ["Spices, sauces & pantry", /\b(salt|spice|cumin|paprika|turmeric|cinnamon|curry|masala|oregano|thyme|sauce|soy|vinegar|oil|honey|sugar|syrup|stock|broth|paste|mustard|ketchup|mayo|salsa|seasoning|powder|bay\b|clove|cardamom|nutmeg|allspice|saffron|sumac|za.atar|harissa|berbere|coconut milk|vanilla|cocoa|baking|ice)/i],
   ];
   // Checked before the aisle list so "potato starch" or "rice flour" don't land in Produce
-  const EARLY = [["Grains, bread & pasta", /\b(flour|starch|panko|breadcrumbs?|crumbs|crusts?|dough|wrappers?|tortillas?|masa)\b/i],
-                 ["Spices, sauces & pantry", /\b(powder|paste|sauce|syrup|oil|vinegar|spice|seasoning)\b/i]];
+  const EARLY = [["Tofu, beans & legumes", /\b(black-eyed peas|beans|chickpeas|lentils)\b/i],
+                 ["Grains, bread & pasta", /\b(flour|starch|panko|breadcrumbs?|crumbs|crusts?|dough|wrappers?|tortillas?|masa)\b/i],
+                 ["Spices, sauces & pantry", /\b(powder|paste|sauce|syrup|oil|vinegar|spice|seasoning|flakes|gochugaru|stock|broth|coconut milk|coconut cream|pickles?|olives?)\b/i]];
   const aisleOf = raw => { const label = raw.replace(/\(.*?\)/g, ""); return (EARLY.find(([, re]) => re.test(label)) || AISLES.find(([, re]) => re.test(label)) || ["Other"])[0]; };
   function groceryItems(ids) {
     const map = new Map();
