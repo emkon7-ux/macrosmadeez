@@ -10,12 +10,12 @@
 <link rel="icon" href="img/brand/fork.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1794598933">
+<link rel="stylesheet" href="css/site.css?v=1794608629">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MacrosMadeEz","logo":"img/brand/logo-green.webp","email":"macrosmadeez@gmail.com","sameAs":["https://www.tiktok.com/@macrosmadeez","https://www.instagram.com/macrosmadeez","https://www.youtube.com/@FitForkKitchen"]}</script>
 </head>
 <body>
 
-<div class="rail" aria-hidden="true"><div class="num"><span id="railNum">01</span><small id="railTotal">/ 07</small></div><div class="bar"><i id="railBar"></i></div><div class="name" id="railName">The beginning</div></div>
+<div class="scroll-line" aria-hidden="true"><i id="scrollLine"></i></div>
 
 <main>
   <!-- 01 HERO -->
@@ -132,12 +132,12 @@
   </section>
 </main>
 
-<script src="site.config.js?v=1794598933"></script>
-<script src="data/recipes.js?v=1794598933"></script>
+<script src="site.config.js?v=1794608629"></script>
+<script src="data/recipes.js?v=1794608629"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-<script src="js/common.js?v=1794598933"></script>
-<script src="js/globe.js?v=1794598933"></script>
+<script src="js/common.js?v=1794608629"></script>
+<script src="js/globe.js?v=1794608629"></script>
 <script>
 (function () {
   const { DATA, ICON, $, $$, card, header, footer, reveal, globe, CFG } = MMEUI;
@@ -201,16 +201,17 @@
   // Teaser globe (decorative, auto-rotates)
   globe($("#teaserGlobe"), { autoRotate: true, interactive: false, showHas: true }).catch(() => {});
 
-  // Chapter rail
-  const chapters = $$("[data-chapter]");
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    const i = chapters.indexOf(e.target);
-    $("#railNum").textContent = String(i + 1).padStart(2, "0");
-    $("#railName").textContent = e.target.dataset.chapter;
-    $("#railBar").style.height = ((i + 1) / chapters.length * 100) + "%";
-  }), { threshold: 0.45 });
-  chapters.forEach(c => io.observe(c));
+  // Thin scroll progress line along the top edge
+  const line = $("#scrollLine");
+  let ticking = false;
+  const paint = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    line.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+    ticking = false;
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(paint); } }, { passive: true });
+  addEventListener("resize", paint);
+  paint();
 
   reveal();
 })();

@@ -195,17 +195,9 @@ button { font: inherit; color: inherit; }
   .scroll-hint { display: none; }
 }
 
-/* Chapter rail (left side, Morpho-style "01 / 05") */
-.rail {
-  position: fixed; left: calc(var(--gutter) - 4px); top: 50%; translate: 0 -50%; z-index: 40; display: flex; flex-direction: column;
-  align-items: center; gap: 14px; mix-blend-mode: difference; color: #fff; pointer-events: none;
-}
-.rail .num { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-align: center; line-height: 1.3; }
-.rail .num small { display: block; font-weight: 600; opacity: .6; }
-.rail .bar { width: 2px; height: 90px; background: rgba(255, 255, 255, .25); position: relative; overflow: hidden; }
-.rail .bar i { position: absolute; inset: 0 0 auto 0; height: 0; background: #fff; transition: height .4s var(--ease); }
-.rail .name { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; }
-@media (max-width: 1100px) { .rail { display: none; } }
+/* Scroll progress: a thin line on the very top edge, never over content */
+.scroll-line { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 70; pointer-events: none; }
+.scroll-line i { display: block; height: 100%; background: var(--yellow); transform: scaleX(0); transform-origin: 0 50%; will-change: transform; }
 
 /* Story statement blocks */
 .statement { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
@@ -455,7 +447,7 @@ a.tag:hover { background: var(--green); color: var(--cream); }
 @media print {
   @page { margin: 14mm; }
   body { background: #fff; font-size: 11pt; }
-  .site-header, .site-footer, .rail, .mobile-menu, .recipe-actions, .ad-slot, .save-cta, .related, .no-print { display: none !important; }
+  .site-header, .site-footer, .scroll-line, .mobile-menu, .recipe-actions, .ad-slot, .save-cta, .related, .no-print { display: none !important; }
   .recipe-hero { padding: 0; }
   .recipe-hero-grid { grid-template-columns: 38% 1fr; gap: 8mm; }
   .recipe-photo { position: static; box-shadow: none; border-radius: 10px; }
