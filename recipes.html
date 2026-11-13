@@ -8,7 +8,7 @@
 <link rel="icon" href="img/brand/fork.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1794544721">
+<link rel="stylesheet" href="css/site.css?v=1794595293">
 </head>
 <body>
 <main>
@@ -16,7 +16,7 @@
     <div class="wrap">
       <span class="eyebrow reveal">The recipe box</span>
       <h1 class="h1 reveal d1" style="margin-top:18px">Our <span class="it">recipes.</span></h1>
-      <p class="lead reveal d2" id="headLead">Every recipe from our videos, with calories and protein up front.</p>
+      <p class="lead reveal d2" id="headLead">Every recipe in one place: the ones from our videos plus dishes from 176 countries, all with calories and protein up front.</p>
     </div>
   </section>
   <div class="filters" id="filters"></div>
@@ -27,21 +27,21 @@
   </div>
 </main>
 
-<script src="site.config.js?v=1794544721"></script>
-<script src="data/recipes.js?v=1794544721"></script>
-<script src="js/common.js?v=1794544721"></script>
+<script src="site.config.js?v=1794595293"></script>
+<script src="data/recipes.js?v=1794595293"></script>
+<script src="js/common.js?v=1794595293"></script>
 <script>
 (function () {
   const { DATA, $, $$, header, footer, reveal, filterUI } = MMEUI;
   header("recipes"); footer();
   const params = new URLSearchParams(location.search);
-  let src = params.get("src") || "video"; // video = MacrosMadeEz originals, world, all
+  let src = params.get("src") || "all"; // all (default), video = MacrosMadeEz originals, world
   const tabs = `<div class="tabs" role="tablist" aria-label="Recipe collection">
-    <button role="tab" data-src="video">MacrosMadeEz</button><button role="tab" data-src="world">World kitchen</button><button role="tab" data-src="all">All</button></div>`;
+    <button role="tab" data-src="all">All recipes</button><button role="tab" data-src="video">From our videos</button><button role="tab" data-src="world">World kitchen</button></div>`;
   const leads = {
     video: "Every recipe from our videos, with calories and protein up front.",
     world: "Healthy takes on classic dishes from around the world. You can also browse them on the globe.",
-    all: "Our recipes plus the world kitchen, all in one place.",
+    all: "Every recipe in one place: the ones from our videos plus dishes from 176 countries, all with calories and protein up front.",
   };
   const ui = filterUI({
     mount: $("#filters"), grid: $("#grid"), resultsEl: $("#results"), extraHTML: tabs,
@@ -53,7 +53,7 @@
   };
   $$("[data-src]").forEach(b => b.onclick = () => {
     src = b.dataset.src; setTabs();
-    const p = new URLSearchParams(location.search); src === "video" ? p.delete("src") : p.set("src", src);
+    const p = new URLSearchParams(location.search); src === "all" ? p.delete("src") : p.set("src", src);
     history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : ""));
     ui.render();
   });
