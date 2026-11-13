@@ -10,7 +10,7 @@
 <link rel="icon" href="img/brand/fork.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1794597080">
+<link rel="stylesheet" href="css/site.css?v=1794598933">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MacrosMadeEz","logo":"img/brand/logo-green.webp","email":"macrosmadeez@gmail.com","sameAs":["https://www.tiktok.com/@macrosmadeez","https://www.instagram.com/macrosmadeez","https://www.youtube.com/@FitForkKitchen"]}</script>
 </head>
 <body>
@@ -132,12 +132,12 @@
   </section>
 </main>
 
-<script src="site.config.js?v=1794597080"></script>
-<script src="data/recipes.js?v=1794597080"></script>
+<script src="site.config.js?v=1794598933"></script>
+<script src="data/recipes.js?v=1794598933"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
-<script src="js/common.js?v=1794597080"></script>
-<script src="js/globe.js?v=1794597080"></script>
+<script src="js/common.js?v=1794598933"></script>
+<script src="js/globe.js?v=1794598933"></script>
 <script>
 (function () {
   const { DATA, ICON, $, $$, card, header, footer, reveal, globe, CFG } = MMEUI;
@@ -158,25 +158,23 @@
   const cards = $$(".hero-card");
   addEventListener("scroll", () => { const y = Math.min(scrollY, 900); cards.forEach((el, i) => el.style.transform = `translateY(${y * (0.06 + i * 0.05)}px) rotate(${[-8, 0, 7][i]}deg)`); }, { passive: true });
 
-  // Recipe of the day (same for everyone today, changes at midnight)
+  // Recipes of the day: one breakfast, snack, lunch, dinner and dessert (same for everyone today, changes at midnight)
   const withImg = DATA.recipes.filter(r => r.img);
-  const t = withImg[(day * 2654435761 >>> 0) % withImg.length];
-  if (t) {
-    const c = MMEUI.countryBy[t.country];
-    $("#today").innerHTML = `
-      <a class="today-img reveal" href="recipe/${t.id}/"><img src="${t.img}" alt="${MMEUI.esc(t.name)}" loading="lazy"></a>
-      <div class="today-copy">
-        <span class="chapter-label reveal">Recipe of the day · ${new Date().toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" })}</span>
-        <h2 class="h2 reveal d1">${MMEUI.esc(t.name)}</h2>
-        <p class="lead reveal d2">${MMEUI.esc(t.blurb)}</p>
-        <div class="today-macros reveal d2"><span><b>${t.macros.cal}</b>cal</span><span><b>${t.macros.p}g</b>protein</span><span><b>${t.macros.c}g</b>carbs</span><span><b>${t.macros.f}g</b>fat</span></div>
-        <div class="reveal d3" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
-          <a class="btn btn-green" href="recipe/${t.id}/">Cook it today</a>
-          <button class="btn btn-ghost fav-pill" type="button" data-fav="${t.id}" aria-pressed="${MMEUI.favs.has(t.id)}">${ICON.heart}<span>Save</span></button>
-          ${c ? `<a class="btn btn-ghost" href="country/${c.code}/">More from ${MMEUI.esc(c.name)}</a>` : ""}
-        </div>
-      </div>`;
-  }
+  const pickFrom = (meal, n) => { const list = withImg.filter(r => r.meal === meal); return list.length ? list[((day + n) * 2654435761 >>> 0) % list.length] : null; };
+  const lunch = pickFrom("main", 1);
+  let dinner = pickFrom("main", 7);
+  if (dinner && lunch && dinner.id === lunch.id) dinner = pickFrom("main", 8);
+  const picks = [["Breakfast", pickFrom("breakfast", 0)], ["Snack", pickFrom("snack", 3)], ["Lunch", lunch], ["Dinner", dinner], ["Dessert", pickFrom("dessert", 5)]].filter(x => x[1]);
+  $("#today").innerHTML = `
+    <div class="today-head">
+      <span class="chapter-label reveal">Recipes of the day · ${new Date().toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" })}</span>
+      <h2 class="h2 reveal d1">A full day, <span class="it">picked for you.</span></h2>
+    </div>
+    <div class="today-grid">${picks.map(([label, r], i) => `
+      <a class="today-card reveal d${Math.min(i, 3)}" href="recipe/${r.id}/">
+        <span class="today-pic"><img src="${r.img}" alt="" loading="lazy"><span class="today-tag">${label}</span></span>
+        <span class="today-info"><b>${MMEUI.esc(r.name)}</b><small>${r.macros.cal} cal · ${r.macros.p}g protein</small><em>Open recipe →</em></span>
+      </a>`).join("")}</div>`;
   const IC = { TOOL_PLANNER: ICON.timer, TOOL_FRIDGE: ICON.fridge, TOOL_PASSPORT: ICON.stamp };
   $$("[data-ic]").forEach(s => s.innerHTML = IC[s.dataset.ic]);
 
