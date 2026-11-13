@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Kitchen: Saved Recipes, Week Plan, Grocery List &amp; Food Passport | MacrosMadeEz</title>
+<meta name="description" content="Your saved recipes, your meal plan with daily check-offs and macro totals, a grocery list, and your food passport of every country you've cooked.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/brand/fork.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=1794544721">
+</head>
+<body>
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow reveal">My kitchen</span>
+      <h1 class="h1 reveal d1" style="margin-top:18px">Your recipes.<br><span class="it">Your week. Your passport.</span></h1>
+      <p class="lead reveal d2">Everything you've saved, planned and cooked. It's stored on this device, so no account is needed.</p>
+    </div>
+  </section>
+  <div class="filters kitchen-tabs">
+    <div class="wrap"><div class="filter-row">
+      <div class="tabs" role="tablist" aria-label="My kitchen">
+        <button role="tab" data-tab="saved" aria-selected="true">Saved <span class="count" id="nSaved"></span></button>
+        <button role="tab" data-tab="week" aria-selected="false">Meal plan</button>
+        <button role="tab" data-tab="grocery" aria-selected="false">Grocery list <span class="count" id="nGrocery"></span></button>
+        <button role="tab" data-tab="passport" aria-selected="false">Passport <span class="count" id="nStamps"></span></button>
+      </div>
+    </div></div>
+  </div>
+  <div class="wrap kitchen-body">
+    <section id="tab-saved" role="tabpanel"></section>
+    <section id="tab-week" role="tabpanel" hidden></section>
+    <section id="tab-grocery" role="tabpanel" hidden></section>
+    <section id="tab-passport" role="tabpanel" hidden></section>
+  </div>
+</main>
+<script src="site.config.js?v=1794544721"></script>
+<script src="data/recipes.js?v=1794544721"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="js/common.js?v=1794544721"></script>
+<script src="js/globe.js?v=1794544721"></script>
+<script src="js/kitchen.js?v=1794544721"></script>
+</body>
+</html>

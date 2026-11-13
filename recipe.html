@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MacrosMadeEz</title>
+<meta name="robots" content="noindex">
+<!-- Old link format (recipe.html?r=id). Recipes now live at recipe/<id>/ -->
+<script>
+  var id = new URLSearchParams(location.search).get("r");
+  location.replace(id ? "recipe/" + encodeURIComponent(id) + "/" : "recipes.html");
+</script>
+</head>
+<body><a href="recipes.html">Browse recipes</a></body>
+</html>

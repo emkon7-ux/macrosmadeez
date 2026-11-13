@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's in My Fridge? High-Protein Recipes from What You Have | MacrosMadeEz</title>
+<meta name="description" content="Type what's in your fridge and get high-protein recipes you can make right now, ranked by how many ingredients you already have.">
+<meta property="og:title" content="What's in my fridge? · MacrosMadeEz">
+<link rel="icon" href="img/brand/fork.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=1794544721">
+</head>
+<body>
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow reveal">What's in my fridge?</span>
+      <h1 class="h1 reveal d1" style="margin-top:18px">Use what you have.<br><span class="it">Eat what you love.</span></h1>
+      <p class="lead reveal d2">Add the ingredients in your fridge and we'll find recipes you can make right now, ranked by how much you already have.</p>
+    </div>
+  </section>
+  <section class="wrap fridge">
+    <div class="fridge-box">
+      <div class="photo-row">
+        <div class="photo-copy"><b>Snap your fridge</b><span>Take or upload a photo and we'll spot the ingredients for you. Your photo stays on your device.</span></div>
+        <div class="photo-btns">
+          <label class="btn btn-green btn-sm photo-btn">📷 Take a photo<input type="file" id="photoCam" accept="image/*" capture="environment" hidden></label>
+          <label class="btn btn-ghost btn-sm photo-btn">Upload a photo<input type="file" id="photoFile" accept="image/*" hidden></label>
+        </div>
+      </div>
+      <div class="photo-box" id="photoBox" hidden>
+        <button type="button" class="photo-close" id="photoClose" aria-label="Close photo">×</button>
+        <canvas id="photoCanvas"></canvas>
+        <div class="photo-side">
+          <p class="photo-status" id="photoStatus" aria-live="polite"></p>
+          <div class="photo-found" id="photoFound"></div>
+        </div>
+      </div>
+      <label class="fridge-input" for="fridgeIn">
+        <span class="sr-only">Add an ingredient</span>
+        <span class="chips-in" id="chipsIn"></span>
+        <input id="fridgeIn" type="text" placeholder="Type an ingredient, then press Enter" autocomplete="off" list="ingList">
+      </label>
+      <datalist id="ingList"></datalist>
+      <div class="quick" id="quick" aria-label="Quick add"></div>
+      <div class="fridge-opts">
+        <label class="check"><input type="checkbox" id="almost"><span>Missing 1 or fewer</span></label>
+        <label class="check"><input type="checkbox" name="fd" value="vegetarian"><span>Vegetarian</span></label>
+        <label class="check"><input type="checkbox" name="fd" value="vegan"><span>Vegan</span></label>
+        <label class="check"><input type="checkbox" name="fd" value="gluten-free"><span>Gluten-free</span></label>
+        <button class="clear-btn" id="clearFridge" type="button">Clear fridge</button>
+      </div>
+      <p class="fine">We skip pantry basics like salt, oil, water and spices when matching.</p>
+    </div>
+    <div class="results-bar" id="fridgeResults"></div>
+    <div class="grid" id="fridgeGrid"></div>
+  </section>
+</main>
+<script src="site.config.js?v=1794544721"></script>
+<script src="data/recipes.js?v=1794544721"></script>
+<script src="js/common.js?v=1794544721"></script>
+<script src="js/fridge.js?v=1794544721"></script>
+<script type="module" src="js/fridge-photo.js?v=1794544721"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MacrosMadeEz · High-protein recipes with real macros</title>
+<meta name="description" content="Easy, high-protein recipes with real macros: calories and protein up front, plus a world kitchen of healthy recipes from 29 countries.">
+<meta property="og:title" content="MacrosMadeEz · Macros, made easy">
+<meta property="og:image" content="img/brand/logo-green.webp">
+<link rel="icon" href="img/brand/fork.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=1794544721">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"MacrosMadeEz","logo":"img/brand/logo-green.webp","email":"macrosmadeez@gmail.com","sameAs":["https://www.tiktok.com/@macrosmadeez","https://www.instagram.com/macrosmadeez","https://www.youtube.com/@FitForkKitchen"]}</script>
+</head>
+<body>
+
+<div class="rail" aria-hidden="true"><div class="num"><span id="railNum">01</span><small id="railTotal">/ 07</small></div><div class="bar"><i id="railBar"></i></div><div class="name" id="railName">The beginning</div></div>
+
+<main>
+  <!-- 01 HERO -->
+  <section class="hero on-dark" data-chapter="The beginning">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow reveal">High-protein recipes · real macros</span>
+        <h1 class="display reveal d1" style="margin-top:22px">Macros,<span class="it">made easy.</span></h1>
+        <p class="lead reveal d2">Quick, healthy recipes with the calories and protein right up front. No guesswork and no boring chicken-and-rice. Just food you actually want to eat.</p>
+        <div class="hero-actions reveal d3">
+          <a class="btn btn-yellow" href="recipes.html">Browse recipes <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn-ghost" href="world.html">Explore the world kitchen</a>
+        </div>
+      </div>
+      <div class="hero-stage" id="heroStage" aria-hidden="true"></div>
+    </div>
+    <div class="hero-tagline"><span class="it">Real food. Real numbers.</span><small>From our kitchen to your feed</small></div>
+    <div class="scroll-hint">Scroll<i></i></div>
+  </section>
+
+  <!-- TODAY -->
+  <section class="section today-sec" data-chapter="Today's pick">
+    <div class="wrap">
+      <div class="today" id="today"></div>
+      <div class="tools-row">
+        <a class="tool reveal" href="planner.html"><span class="tool-ic" data-ic="TOOL_PLANNER"></span><div><b>Macro meal builder</b><span>Hit your calories and protein, automatically.</span></div></a>
+        <a class="tool reveal d1" href="fridge.html"><span class="tool-ic" data-ic="TOOL_FRIDGE"></span><div><b>What's in my fridge?</b><span>Recipes from what you already have.</span></div></a>
+        <a class="tool reveal d2" href="kitchen.html#passport"><span class="tool-ic" data-ic="TOOL_PASSPORT"></span><div><b>Food passport</b><span>Collect a stamp for every country you cook.</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 STATEMENT -->
+  <section class="section" data-chapter="The idea">
+    <div class="wrap statement">
+      <div>
+        <span class="chapter-label reveal">01 · The idea</span>
+        <h2 class="h1 reveal d1">One fork.<br><span class="it">Endless meals.</span></h2>
+        <p class="lead reveal d2" style="margin-top:24px">Every recipe starts with the numbers you care about, calories and protein, then gets out of your way: a handful of ingredients and three to five easy steps.</p>
+        <div class="stats" id="stats"></div>
+      </div>
+      <div class="fork-art reveal">
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <circle class="ring draw" cx="200" cy="200" r="180"/>
+          <g class="tine">
+            <rect x="152" y="90" width="14" height="80" rx="7"/><rect x="182" y="90" width="14" height="80" rx="7"/>
+            <rect x="212" y="90" width="14" height="80" rx="7"/><rect x="242" y="90" width="14" height="80" rx="7"/>
+            <path d="M146 160h116l-42 38v104a16 16 0 0 1-32 0V198z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 FEATURED -->
+  <section class="section cream2" data-chapter="Fresh picks">
+    <div class="wrap">
+      <div class="strip-head">
+        <div>
+          <span class="chapter-label reveal">02 · Fresh picks</span>
+          <h2 class="h2 reveal d1">Straight from <span class="it g">our videos.</span></h2>
+        </div>
+        <div class="strip-nav"><button aria-label="Scroll left" data-dir="-1"></button><button aria-label="Scroll right" data-dir="1"></button></div>
+      </div>
+      <div class="strip" id="featured"></div>
+      <div style="margin-top:28px"><a class="btn btn-green" href="recipes.html">See all our recipes</a></div>
+    </div>
+  </section>
+
+  <!-- 04 MEAL BUILDER -->
+  <section class="section green on-dark" data-chapter="Meal builder">
+    <div class="wrap statement">
+      <div>
+        <span class="chapter-label reveal">03 · Macro meal builder</span>
+        <h2 class="h1 reveal d1">Tell us your macros.<br><span class="it y">We'll plan the day.</span></h2>
+        <p class="lead reveal d2" style="margin-top:24px">Enter your calories and protein, and get breakfast, lunch, dinner and snacks that add up to your numbers. Swap anything, lock your favorites and grab the grocery list.</p>
+        <div class="reveal d3" style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-yellow" href="planner.html">Build my day</a>
+          <a class="btn btn-ghost" href="planner.html#lean-out">Try a lean-out day</a>
+        </div>
+      </div>
+      <div class="builder-teaser reveal" aria-hidden="true">
+        <div class="bt-row"><span>Calories</span><b>2,200</b><i style="width:98%"></i></div>
+        <div class="bt-row"><span>Protein</span><b>165g</b><i style="width:100%"></i></div>
+        <div class="bt-meal">Breakfast <em>Protein French Toast</em></div>
+        <div class="bt-meal">Lunch <em>Chicken Shawarma Bowl</em></div>
+        <div class="bt-meal">Snack <em>Greek Yogurt Berry Bark</em></div>
+        <div class="bt-meal">Dinner <em>Lemon Herb Salmon</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 WORLD -->
+  <section class="section deep on-dark" data-chapter="The world">
+    <div class="wrap globe-teaser">
+      <div>
+        <span class="chapter-label reveal">04 · World kitchen</span>
+        <h2 class="h1 reveal d1">Spin the globe.<br><span class="it y">Eat the world.</span></h2>
+        <p class="lead reveal d2" style="margin-top:24px">Pick a country and find healthy takes on its classic dishes: jollof, phở, tagine, bibimbap and more. Filter by vegan, gluten-free, high protein, breakfast or dessert.</p>
+        <div class="reveal d3" style="margin-top:32px"><a class="btn btn-yellow" href="world.html">Open the globe</a></div>
+      </div>
+      <a href="world.html" aria-label="Open the interactive globe"><svg class="teaser-globe globe" id="teaserGlobe" role="img" aria-label="Rotating globe"></svg></a>
+    </div>
+  </section>
+
+  <!-- 05 FOLLOW -->
+  <section class="section" data-chapter="Follow along">
+    <div class="wrap">
+      <span class="chapter-label reveal">05 · Follow along</span>
+      <h2 class="h2 reveal d1">A new recipe <span class="it g">every day.</span></h2>
+      <p class="lead reveal d2" style="margin-top:18px">Short videos with the macros in the first three seconds. Save them for later and actually cook them.</p>
+      <div class="social-cards" id="socialCards"></div>
+    </div>
+  </section>
+</main>
+
+<script src="site.config.js?v=1794544721"></script>
+<script src="data/recipes.js?v=1794544721"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="js/common.js?v=1794544721"></script>
+<script src="js/globe.js?v=1794544721"></script>
+<script>
+(function () {
+  const { DATA, ICON, $, $$, card, header, footer, reveal, globe, CFG } = MMEUI;
+  header("home"); footer();
+
+  const vids = DATA.recipes.filter(r => r.src === "video");
+  // Hero: three dish cards (rotate daily so the page feels fresh)
+  const day = Math.floor(Date.now() / 864e5);
+  const pick = i => vids[(day * 7 + i * 13) % vids.length];
+  const [a, b, c] = [pick(0), pick(1), pick(2)];
+  $("#heroStage").innerHTML = `
+    <div class="hero-card left"><img src="${b.img}" alt=""></div>
+    <div class="hero-card main"><img src="${a.img}" alt="" fetchpriority="high"></div>
+    <div class="hero-card right"><img src="${c.img}" alt=""></div>
+    <div class="macro-chip a"><small>Protein</small>${a.macros.p}g</div>
+    <div class="macro-chip b"><small>Calories</small>${a.macros.cal}</div>`;
+  // Gentle parallax on the hero cards
+  const cards = $$(".hero-card");
+  addEventListener("scroll", () => { const y = Math.min(scrollY, 900); cards.forEach((el, i) => el.style.transform = `translateY(${y * (0.06 + i * 0.05)}px) rotate(${[-8, 0, 7][i]}deg)`); }, { passive: true });
+
+  // Recipe of the day (same for everyone today, changes at midnight)
+  const withImg = DATA.recipes.filter(r => r.img);
+  const t = withImg[(day * 2654435761 >>> 0) % withImg.length];
+  if (t) {
+    const c = MMEUI.countryBy[t.country];
+    $("#today").innerHTML = `
+      <a class="today-img reveal" href="recipe/${t.id}/"><img src="${t.img}" alt="${MMEUI.esc(t.name)}" loading="lazy"></a>
+      <div class="today-copy">
+        <span class="chapter-label reveal">Recipe of the day · ${new Date().toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" })}</span>
+        <h2 class="h2 reveal d1">${MMEUI.esc(t.name)}</h2>
+        <p class="lead reveal d2">${MMEUI.esc(t.blurb)}</p>
+        <div class="today-macros reveal d2"><span><b>${t.macros.cal}</b>cal</span><span><b>${t.macros.p}g</b>protein</span><span><b>${t.macros.c}g</b>carbs</span><span><b>${t.macros.f}g</b>fat</span></div>
+        <div class="reveal d3" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+          <a class="btn btn-green" href="recipe/${t.id}/">Cook it today</a>
+          <button class="btn btn-ghost fav-pill" type="button" data-fav="${t.id}" aria-pressed="${MMEUI.favs.has(t.id)}">${ICON.heart}<span>Save</span></button>
+          ${c ? `<a class="btn btn-ghost" href="country/${c.code}/">More from ${MMEUI.esc(c.name)}</a>` : ""}
+        </div>
+      </div>`;
+  }
+  const IC = { TOOL_PLANNER: ICON.timer, TOOL_FRIDGE: ICON.fridge, TOOL_PASSPORT: ICON.stamp };
+  $$("[data-ic]").forEach(s => s.innerHTML = IC[s.dataset.ic]);
+
+  // Stats
+  const countries = DATA.countries.length;
+  const avgP = Math.round(vids.reduce((s, r) => s + r.macros.p, 0) / vids.length);
+  $("#stats").innerHTML = [[vids.length, "MacrosMadeEz recipes"], [countries, "countries to explore"], [avgP + "g", "average protein"]]
+    .map(([n, t], i) => `<div class="stat reveal d${i + 1}"><b>${n}</b><span>${t}</span></div>`).join("");
+
+  // Featured strip: newest-feeling mix of breakfast, mains, desserts
+  const order = [...vids].sort((x, y) => ((x.id.length * 31 + day) % 17) - ((y.id.length * 31 + day) % 17)).slice(0, 12);
+  $("#featured").innerHTML = order.map(card).join("");
+  const strip = $("#featured");
+  $$(".strip-nav button").forEach(btn => {
+    btn.innerHTML = btn.dataset.dir === "1" ? ICON.arrow : ICON.arrowL;
+    btn.onclick = () => strip.scrollBy({ left: btn.dataset.dir * strip.clientWidth * 0.8, behavior: "smooth" });
+  });
+
+  // Socials
+  const S = CFG.social;
+  $("#socialCards").innerHTML = [["tiktok", "TikTok", "@macrosmadeez", "Daily recipe videos"], ["instagram", "Instagram", "@macrosmadeez", "Reels + saves for later"], ["youtube", "YouTube", "FitFork", "Shorts every evening"]]
+    .filter(([k]) => S[k]).map(([k, n, h, d], i) => `<a class="social-card reveal d${i + 1}" href="${S[k]}" target="_blank" rel="noopener">${ICON[k]}<div><b>${n}</b><span>${h} · ${d}</span></div></a>`).join("");
+
+  // Teaser globe (decorative, auto-rotates)
+  globe($("#teaserGlobe"), { autoRotate: true, interactive: false, showHas: true }).catch(() => {});
+
+  // Chapter rail
+  const chapters = $$("[data-chapter]");
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const i = chapters.indexOf(e.target);
+    $("#railNum").textContent = String(i + 1).padStart(2, "0");
+    $("#railName").textContent = e.target.dataset.chapter;
+    $("#railBar").style.height = ((i + 1) / chapters.length * 100) + "%";
+  }), { threshold: 0.45 });
+  chapters.forEach(c => io.observe(c));
+
+  reveal();
+})();
+</script>
+</body>
+</html>

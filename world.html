@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World kitchen · MacrosMadeEz</title>
+<meta name="description" content="Spin the globe and pick a country to find healthy, high-protein takes on its classic dishes.">
+<link rel="icon" href="img/brand/fork.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=1794544721">
+</head>
+<body>
+<main>
+  <section class="world-hero on-dark">
+    <div class="wrap world-layout">
+      <div class="world-copy">
+        <span class="eyebrow reveal">World kitchen</span>
+        <h1 class="h1 reveal d1" style="margin-top:18px">Pick a country.<span class="it">Eat like a local.</span></h1>
+        <p class="lead reveal d2" style="margin-top:20px"><b id="worldCount"></b> Spin the globe, zoom in and tap any yellow country. Each recipe is a lighter, high-protein take on a local classic.</p>
+        <div class="country-search reveal d3">
+          <label class="search"><span class="sr-only">Find a country</span><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="countryInput" type="search" placeholder="Find a country" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggest"></label>
+          <ul class="suggest" id="suggest" role="listbox"></ul>
+        </div>
+        <div class="region-jump reveal d3" role="group" aria-label="Jump to a region" id="regionJump"></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px" class="reveal d3">
+          <button class="btn btn-yellow btn-sm" id="surprise">Surprise me</button>
+          <a class="stamp-legend" href="kitchen.html#passport" id="stampLegend"></a>
+        </div>
+      </div>
+      <div class="globe-wrap">
+        <svg class="globe" id="globe" role="group" aria-label="Interactive globe. Countries with recipes are yellow."></svg>
+        <div class="globe-tip" id="tip"></div>
+        <div class="globe-loading" id="loading">Loading the globe…</div>
+        <div class="globe-hint">Drag to spin · scroll or pinch to zoom · tap a country</div>
+        <div class="zoom-ctrl" role="group" aria-label="Zoom">
+          <button class="icon-btn" id="zIn" aria-label="Zoom in">+</button>
+          <button class="icon-btn" id="zOut" aria-label="Zoom out">−</button>
+          <button class="icon-btn" id="zReset" aria-label="Reset view"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="chapter-label reveal">Every country</span>
+      <h2 class="h2 reveal d1" style="margin-bottom:44px">Or pick from <span class="it g">the list.</span></h2>
+      <div class="region-list" id="regions"><!--PRERENDER:regions--><div class="region"><h3>Africa</h3><a href="country/dz/">Algeria <small>10</small></a><a href="country/ao/">Angola <small>10</small></a><a href="country/bj/">Benin <small>10</small></a><a href="country/bw/">Botswana <small>10</small></a><a href="country/bf/">Burkina Faso <small>10</small></a><a href="country/bi/">Burundi <small>10</small></a><a href="country/cv/">Cabo Verde <small>10</small></a><a href="country/cm/">Cameroon <small>10</small></a><a href="country/cf/">Central African Rep. <small>10</small></a><a href="country/td/">Chad <small>10</small></a><a href="country/cg/">Congo <small>10</small></a><a href="country/ci/">Côte d&#x27;Ivoire <small>10</small></a><a href="country/cd/">DR Congo <small>10</small></a><a href="country/dj/">Djibouti <small>10</small></a><a href="country/eg/">Egypt <small>10</small></a><a href="country/gq/">Equatorial Guinea <small>10</small></a><a href="country/er/">Eritrea <small>10</small></a><a href="country/et/">Ethiopia <small>10</small></a><a href="country/ga/">Gabon <small>10</small></a><a href="country/gm/">Gambia <small>10</small></a><a href="country/gh/">Ghana <small>10</small></a><a href="country/gn/">Guinea <small>10</small></a><a href="country/gw/">Guinea-Bissau <small>10</small></a><a href="country/ke/">Kenya <small>10</small></a><a href="country/ls/">Lesotho <small>10</small></a><a href="country/lr/">Liberia <small>10</small></a><a href="country/ly/">Libya <small>10</small></a><a href="country/mg/">Madagascar <small>10</small></a><a href="country/mw/">Malawi <small>10</small></a><a href="country/ml/">Mali <small>10</small></a><a href="country/mr/">Mauritania <small>10</small></a><a href="country/mu/">Mauritius <small>10</small></a><a href="country/ma/">Morocco <small>10</small></a><a href="country/mz/">Mozambique <small>10</small></a><a href="country/na/">Namibia <small>10</small></a><a href="country/ne/">Niger <small>10</small></a><a href="country/ng/">Nigeria <small>10</small></a><a href="country/rw/">Rwanda <small>10</small></a><a href="country/sn/">Senegal <small>10</small></a><a href="country/sl/">Sierra Leone <small>10</small></a><a href="country/so/">Somalia <small>10</small></a><a href="country/za/">South Africa <small>10</small></a><a href="country/ss/">South Sudan <small>10</small></a><a href="country/sd/">Sudan <small>10</small></a><a href="country/tz/">Tanzania <small>10</small></a><a href="country/tg/">Togo <small>10</small></a><a href="country/tn/">Tunisia <small>10</small></a><a href="country/ug/">Uganda <small>10</small></a><a href="country/zm/">Zambia <small>10</small></a><a href="country/zw/">Zimbabwe <small>10</small></a><a href="country/sz/">eSwatini <small>10</small></a></div><div class="region"><h3>Americas</h3><a href="country/ar/">Argentina <small>10</small></a><a href="country/bs/">Bahamas <small>10</small></a><a href="country/bb/">Barbados <small>10</small></a><a href="country/bz/">Belize <small>10</small></a><a href="country/bo/">Bolivia <small>10</small></a><a href="country/br/">Brazil <small>10</small></a><a href="country/ca/">Canada <small>10</small></a><a href="country/cl/">Chile <small>10</small></a><a href="country/co/">Colombia <small>10</small></a><a href="country/cr/">Costa Rica <small>10</small></a><a href="country/cu/">Cuba <small>10</small></a><a href="country/do/">Dominican Rep. <small>10</small></a><a href="country/ec/">Ecuador <small>10</small></a><a href="country/sv/">El Salvador <small>10</small></a><a href="country/gt/">Guatemala <small>10</small></a><a href="country/gy/">Guyana <small>10</small></a><a href="country/ht/">Haiti <small>10</small></a><a href="country/hn/">Honduras <small>10</small></a><a href="country/jm/">Jamaica <small>10</small></a><a href="country/mx/">Mexico <small>14</small></a><a href="country/ni/">Nicaragua <small>10</small></a><a href="country/pa/">Panama <small>10</small></a><a href="country/py/">Paraguay <small>10</small></a><a href="country/pe/">Peru <small>11</small></a><a href="country/pr/">Puerto Rico <small>10</small></a><a href="country/sr/">Suriname <small>10</small></a><a href="country/tt/">Trinidad and Tobago <small>10</small></a><a href="country/us/">United States <small>16</small></a><a href="country/uy/">Uruguay <small>10</small></a><a href="country/ve/">Venezuela <small>10</small></a></div><div class="region"><h3>Asia</h3><a href="country/bd/">Bangladesh <small>10</small></a><a href="country/bt/">Bhutan <small>10</small></a><a href="country/bn/">Brunei <small>10</small></a><a href="country/kh/">Cambodia <small>10</small></a><a href="country/cn/">China <small>12</small></a><a href="country/in/">India <small>11</small></a><a href="country/id/">Indonesia <small>11</small></a><a href="country/jp/">Japan <small>11</small></a><a href="country/la/">Laos <small>10</small></a><a href="country/my/">Malaysia <small>10</small></a><a href="country/mv/">Maldives <small>10</small></a><a href="country/mn/">Mongolia <small>10</small></a><a href="country/mm/">Myanmar <small>10</small></a><a href="country/np/">Nepal <small>10</small></a><a href="country/kp/">North Korea <small>10</small></a><a href="country/pk/">Pakistan <small>10</small></a><a href="country/ph/">Philippines <small>10</small></a><a href="country/sg/">Singapore <small>10</small></a><a href="country/kr/">South Korea <small>10</small></a><a href="country/lk/">Sri Lanka <small>10</small></a><a href="country/tw/">Taiwan <small>10</small></a><a href="country/th/">Thailand <small>11</small></a><a href="country/tl/">Timor-Leste <small>10</small></a><a href="country/vn/">Vietnam <small>10</small></a></div><div class="region"><h3>Central Asia &amp; Caucasus</h3><a href="country/af/">Afghanistan <small>10</small></a><a href="country/am/">Armenia <small>10</small></a><a href="country/az/">Azerbaijan <small>10</small></a><a href="country/ge/">Georgia <small>10</small></a><a href="country/kz/">Kazakhstan <small>10</small></a><a href="country/kg/">Kyrgyzstan <small>10</small></a><a href="country/tj/">Tajikistan <small>10</small></a><a href="country/tm/">Turkmenistan <small>10</small></a><a href="country/uz/">Uzbekistan <small>10</small></a></div><div class="region"><h3>Europe</h3><a href="country/al/">Albania <small>10</small></a><a href="country/at/">Austria <small>10</small></a><a href="country/by/">Belarus <small>10</small></a><a href="country/be/">Belgium <small>10</small></a><a href="country/ba/">Bosnia and Herzegovina <small>10</small></a><a href="country/bg/">Bulgaria <small>10</small></a><a href="country/hr/">Croatia <small>10</small></a><a href="country/cz/">Czechia <small>10</small></a><a href="country/dk/">Denmark <small>10</small></a><a href="country/ee/">Estonia <small>10</small></a><a href="country/fi/">Finland <small>10</small></a><a href="country/fr/">France <small>12</small></a><a href="country/de/">Germany <small>10</small></a><a href="country/gr/">Greece <small>12</small></a><a href="country/hu/">Hungary <small>10</small></a><a href="country/is/">Iceland <small>10</small></a><a href="country/ie/">Ireland <small>10</small></a><a href="country/it/">Italy <small>14</small></a><a href="country/lv/">Latvia <small>10</small></a><a href="country/lt/">Lithuania <small>10</small></a><a href="country/lu/">Luxembourg <small>10</small></a><a href="country/mt/">Malta <small>10</small></a><a href="country/md/">Moldova <small>10</small></a><a href="country/me/">Montenegro <small>10</small></a><a href="country/nl/">Netherlands <small>10</small></a><a href="country/mk/">North Macedonia <small>10</small></a><a href="country/no/">Norway <small>10</small></a><a href="country/pl/">Poland <small>10</small></a><a href="country/pt/">Portugal <small>10</small></a><a href="country/ro/">Romania <small>10</small></a><a href="country/ru/">Russia <small>10</small></a><a href="country/rs/">Serbia <small>10</small></a><a href="country/sk/">Slovakia <small>10</small></a><a href="country/si/">Slovenia <small>10</small></a><a href="country/es/">Spain <small>10</small></a><a href="country/se/">Sweden <small>11</small></a><a href="country/ch/">Switzerland <small>10</small></a><a href="country/ua/">Ukraine <small>10</small></a><a href="country/gb/">United Kingdom <small>10</small></a></div><div class="region"><h3>Middle East</h3><a href="country/bh/">Bahrain <small>10</small></a><a href="country/cy/">Cyprus <small>10</small></a><a href="country/ir/">Iran <small>10</small></a><a href="country/iq/">Iraq <small>10</small></a><a href="country/il/">Israel <small>10</small></a><a href="country/jo/">Jordan <small>10</small></a><a href="country/kw/">Kuwait <small>10</small></a><a href="country/lb/">Lebanon <small>11</small></a><a href="country/om/">Oman <small>10</small></a><a href="country/ps/">Palestine <small>10</small></a><a href="country/qa/">Qatar <small>10</small></a><a href="country/sa/">Saudi Arabia <small>10</small></a><a href="country/sy/">Syria <small>10</small></a><a href="country/tr/">Türkiye <small>10</small></a><a href="country/ae/">United Arab Emirates <small>10</small></a><a href="country/ye/">Yemen <small>10</small></a></div><div class="region"><h3>Oceania</h3><a href="country/au/">Australia <small>10</small></a><a href="country/fj/">Fiji <small>10</small></a><a href="country/nz/">New Zealand <small>10</small></a><a href="country/pg/">Papua New Guinea <small>10</small></a><a href="country/ws/">Samoa <small>10</small></a><a href="country/sb/">Solomon Islands <small>10</small></a><a href="country/vu/">Vanuatu <small>10</small></a></div><!--/PRERENDER:regions--></div>
+    </div>
+  </section>
+</main>
+
+<script src="site.config.js?v=1794544721"></script>
+<script src="data/recipes.js?v=1794544721"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="js/common.js?v=1794544721"></script>
+<script src="js/globe.js?v=1794544721"></script>
+<script>
+(function () {
+  const { DATA, $, $$, esc, header, footer, reveal, globe, recipesIn } = MMEUI;
+  header("world"); footer();
+  const go = c => location.href = "country/" + c.code + "/";
+  const countries = [...DATA.countries].map(c => ({ ...c, n: recipesIn(c.code).length })).sort((a, b) => a.name.localeCompare(b.name));
+
+  // Country list by region (also the accessible / no-JS-globe way in)
+  const regions = {};
+  countries.forEach(c => (regions[c.region] ||= []).push(c));
+  $("#regions").innerHTML = Object.keys(regions).sort().map(r => `<div class="region"><h3>${r}</h3>
+    ${regions[r].map(c => `<a href="country/${c.code}/">${esc(c.name)} <small>${c.n}</small></a>`).join("")}</div>`).join("");
+
+  const st = MMEUI.cooked.countries().length;
+  $("#stampLegend").innerHTML = `<i></i>${st ? `Your passport: ${st} stamp${st === 1 ? "" : "s"}` : "Cook a recipe to stamp your passport"}`;
+  $("#worldCount").textContent = `${countries.length} countries, ${DATA.recipes.filter(r => r.country).length} recipes.`;
+
+  let g;
+  globe($("#globe"), { interactive: true, zoomable: true, autoRotate: true, tipEl: $("#tip"), onPick: go, stampCodes: MMEUI.cooked.countries() })
+    .then(api => {
+      g = api; $("#loading").remove();
+      $("#zIn").onclick = g.zoomIn; $("#zOut").onclick = g.zoomOut; $("#zReset").onclick = g.reset;
+    })
+    .catch(() => { $("#loading").textContent = "Couldn't load the globe. Use the list below."; });
+
+  // Region shortcuts: turn + zoom the globe to each part of the world
+  const REGION_VIEW = {
+    "Africa": [[20, 3], 1.7], "Europe": [[15, 52], 2.6], "Middle East": [[46, 27], 2.6], "Central Asia & Caucasus": [[62, 42], 2.4],
+    "Asia": [[100, 22], 1.7], "Americas": [[-75, 8], 1.3], "Oceania": [[150, -18], 1.9],
+  };
+  const shortName = r => r === "Central Asia & Caucasus" ? "Central Asia" : r;
+  $("#regionJump").innerHTML = Object.keys(REGION_VIEW).map(r => `<button class="chip" data-r="${r}">${shortName(r)}</button>`).join("");
+  $("#regionJump").addEventListener("click", e => {
+    const b = e.target.closest("[data-r]"); if (!b || !g) return;
+    const [ll, z] = REGION_VIEW[b.dataset.r];
+    g.rotateTo(ll, z);
+    $$("#regionJump .chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+  });
+  // Surprise me: spin to a random country, then open it
+  $("#surprise").onclick = () => {
+    const c = countries[Math.floor(Math.random() * countries.length)];
+    if (!g) return go(c);
+    g.focus(c.code);
+    $("#surprise").textContent = `Taking you to ${c.name}…`;
+    setTimeout(() => go(c), 1400);
+  };
+
+  // Search box: spins the globe to the country, Enter opens it
+  const input = $("#countryInput"), list = $("#suggest");
+  let active = 0, matches = [];
+  const show = () => {
+    const q = input.value.trim().toLowerCase();
+    matches = q ? countries.filter(c => c.name.toLowerCase().includes(q)).slice(0, 8) : [];
+    active = 0;
+    list.innerHTML = matches.map((c, i) => `<li><a href="country/${c.code}/" role="option" class="${i === 0 ? "active" : ""}">${esc(c.name)}<small>${c.n} recipes</small></a></li>`).join("")
+      || (q ? `<li><a aria-disabled="true">No recipes for that one yet</a></li>` : "");
+    list.classList.toggle("show", !!q);
+    input.setAttribute("aria-expanded", !!q);
+    if (matches[0]) g?.focus(matches[0].code);
+  };
+  input.addEventListener("input", show);
+  input.addEventListener("keydown", e => {
+    if (!matches.length) return;
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault(); active = (active + (e.key === "ArrowDown" ? 1 : -1) + matches.length) % matches.length;
+      [...list.querySelectorAll("a")].forEach((a, i) => a.classList.toggle("active", i === active));
+      g?.focus(matches[active].code);
+    }
+    if (e.key === "Enter") go(matches[active]);
+  });
+  document.addEventListener("click", e => { if (!e.target.closest(".country-search")) list.classList.remove("show"); });
+  reveal();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Macro Meal Builder: Build a Day of Meals to Hit Your Macros | MacrosMadeEz</title>
+<meta name="description" content="Enter your calorie and protein targets and get a full day of high-protein meals that hits them, with swaps and a grocery list. Free macro meal planner.">
+<meta property="og:title" content="Macro Meal Builder · MacrosMadeEz">
+<meta property="og:description" content="Set your calories and protein. Get a full day of meals that hits them.">
+<link rel="icon" href="img/brand/fork.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=1794544721">
+</head>
+<body>
+<main>
+  <section class="page-head planner-head">
+    <div class="wrap">
+      <span class="eyebrow reveal">Macro meal builder</span>
+      <h1 class="h1 reveal d1" style="margin-top:18px">Your macros.<br><span class="it">Your day of meals.</span></h1>
+      <p class="lead reveal d2">Set your calories and protein. Then pick your meals from 1,800+ recipes and watch your totals add up, or let us suggest a whole day.</p>
+    </div>
+  </section>
+
+  <section class="wrap planner">
+    <form class="planner-panel" id="plannerForm" autocomplete="off">
+      <div class="field">
+        <span>Your goal</span>
+        <div class="presets" role="group" aria-label="Goal">
+          <button type="button" class="chip" data-preset="cut">Lean out</button>
+          <button type="button" class="chip" data-preset="maintain" aria-pressed="true">Maintain</button>
+          <button type="button" class="chip" data-preset="build">Build muscle</button>
+        </div>
+      </div>
+
+      <div class="body-calc" id="bodyCalc">
+        <div class="bc-head">
+          <b>Calculate from your body</b>
+          <div class="unit-toggle" role="group" aria-label="Units">
+            <button type="button" data-units="us" aria-pressed="true">lb / ft</button>
+            <button type="button" data-units="metric" aria-pressed="false">kg / cm</button>
+          </div>
+        </div>
+        <div class="bc-grid">
+          <label class="bc-f"><span>Weight</span><div class="num sm"><input type="number" id="weight" min="30" max="700" step="1" inputmode="decimal" placeholder="180"><em id="wUnit">lb</em></div></label>
+          <label class="bc-f us-only"><span>Height</span><div class="hgt"><div class="num sm"><input type="number" id="hFt" min="3" max="8" step="1" inputmode="numeric" placeholder="5"><em>ft</em></div><div class="num sm"><input type="number" id="hIn" min="0" max="11" step="1" inputmode="numeric" placeholder="10"><em>in</em></div></div></label>
+          <label class="bc-f metric-only" hidden><span>Height</span><div class="num sm"><input type="number" id="hCm" min="100" max="250" step="1" inputmode="numeric" placeholder="178"><em>cm</em></div></label>
+          <label class="bc-f"><span>Age</span><div class="num sm"><input type="number" id="age" min="14" max="100" step="1" inputmode="numeric" placeholder="30"><em>yrs</em></div></label>
+          <div class="bc-f"><span>Sex</span><div class="seg sm" role="radiogroup" aria-label="Sex">
+            <label><input type="radio" name="sex" value="m" checked><span>Male</span></label>
+            <label><input type="radio" name="sex" value="f"><span>Female</span></label></div></div>
+          <label class="bc-f wide"><span>Activity</span>
+            <select id="activity" class="text-in">
+              <option value="1.2">Mostly sitting (little exercise)</option>
+              <option value="1.375">Light (1–3 workouts a week)</option>
+              <option value="1.55" selected>Moderate (3–5 workouts a week)</option>
+              <option value="1.725">Very active (6–7 workouts a week)</option>
+              <option value="1.9">Athlete / physical job</option>
+            </select></label>
+        </div>
+        <p class="bc-out" id="bcOut" aria-live="polite">Fill in your weight, height and age and your calories and protein update automatically.</p>
+        <p class="fine">Estimates use the Mifflin-St Jeor formula. This is general guidance, not medical advice.</p>
+      </div>
+
+      <label class="field">
+        <span>Calories per day</span>
+        <div class="num"><input type="number" id="cal" min="1000" max="5000" step="50" inputmode="numeric" required><em>cal</em></div>
+        <input type="range" id="calR" min="1000" max="4000" step="50" aria-label="Calories slider">
+      </label>
+      <label class="field">
+        <span>Protein per day</span>
+        <div class="num"><input type="number" id="pro" min="40" max="350" step="5" inputmode="numeric" required><em>g</em></div>
+        <input type="range" id="proR" min="40" max="300" step="5" aria-label="Protein slider">
+      </label>
+
+      <fieldset class="field">
+        <legend>Meals per day</legend>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="meals" value="3"><span>3</span></label>
+          <label><input type="radio" name="meals" value="4" checked><span>3 + snack</span></label>
+          <label><input type="radio" name="meals" value="5"><span>3 + 2 snacks</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Diet</legend>
+        <div class="chips-wrap">
+          <label class="check"><input type="checkbox" name="diet" value="vegetarian"><span>Vegetarian</span></label>
+          <label class="check"><input type="checkbox" name="diet" value="vegan"><span>Vegan</span></label>
+          <label class="check"><input type="checkbox" name="diet" value="gluten-free"><span>Gluten-free</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Recipes from</legend>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="src" value="all" checked><span>Everywhere</span></label>
+          <label><input type="radio" name="src" value="video"><span>MacrosMadeEz</span></label>
+          <label><input type="radio" name="src" value="world"><span>World</span></label>
+        </div>
+      </fieldset>
+      <label class="field">
+        <span>Skip ingredients <small>(comma separated)</small></span>
+        <input type="text" id="avoid" class="text-in" placeholder="e.g. shrimp, mushrooms">
+      </label>
+      <button class="btn btn-yellow planner-go" type="submit">Suggest a day for me</button>
+    </form>
+
+    <div class="planner-out" id="out" aria-live="polite">
+      <div class="tabs plan-tabs" role="tablist" aria-label="Meal builder">
+        <button role="tab" type="button" data-ptab="mine" aria-selected="true">My day</button>
+        <button role="tab" type="button" data-ptab="suggest" aria-selected="false">Suggestions</button>
+      </div>
+      <div class="totals" id="totals"></div>
+      <div class="plan-actions no-print" id="planActions" hidden>
+        <button class="btn btn-ghost btn-sm" id="groceryBtn" type="button">Grocery list</button>
+        <button class="btn btn-ghost btn-sm" id="shareBtn" type="button">Share plan</button>
+        <button class="btn btn-ghost btn-sm" id="printBtn" type="button">Print</button>
+        <button class="btn btn-ghost btn-sm" id="toWeekBtn" type="button">Add day to my week</button>
+      </div>
+
+      <section id="mineView">
+        <div class="day-slots" id="slots"></div>
+        <div class="recipe-search" id="search">
+          <div class="rs-head">
+            <h2 class="h3">Find recipes <small>adding to <b id="rsTo">Breakfast</b></small></h2>
+            <button type="button" class="clear-btn" id="clearDay">Clear my day</button>
+          </div>
+          <div class="sec-pick" role="group" aria-label="Which meal you're adding to">
+            <span>Adding to</span>
+            <button type="button" data-sec="breakfast" aria-pressed="true">Breakfast <i></i></button>
+            <button type="button" data-sec="lunch" aria-pressed="false">Lunch <i></i></button>
+            <button type="button" data-sec="dinner" aria-pressed="false">Dinner <i></i></button>
+            <button type="button" data-sec="snack" aria-pressed="false">Snacks <i></i></button>
+          </div>
+          <p class="rs-left" id="rsLeft"></p>
+          <input type="search" id="rsQ" class="text-in rs-q" placeholder="Search recipes, ingredients or countries (e.g. chicken, oats, Mexico)" autocomplete="off">
+          <div class="rs-filters">
+            <div class="chips-wrap" role="group" aria-label="Meal type">
+              <button type="button" class="chip" data-rs-meal="slot" aria-pressed="true">Fits this meal</button>
+              <button type="button" class="chip" data-rs-meal="all" aria-pressed="false">All</button>
+              <button type="button" class="chip" data-rs-meal="breakfast" aria-pressed="false">Breakfast</button>
+              <button type="button" class="chip" data-rs-meal="main" aria-pressed="false">Lunch &amp; dinner</button>
+              <button type="button" class="chip" data-rs-meal="snack" aria-pressed="false">Snacks</button>
+              <button type="button" class="chip" data-rs-meal="smoothie" aria-pressed="false">Smoothies</button>
+              <button type="button" class="chip" data-rs-meal="dessert" aria-pressed="false">Desserts</button>
+            </div>
+            <label class="rs-sort">Sort <select id="rsSort" class="text-in">
+              <option value="fit">Best fit for what's left</option>
+              <option value="protein">Most protein</option>
+              <option value="light">Fewest calories</option>
+            </select></label>
+          </div>
+          <p class="rs-count" id="rsCount"></p>
+          <ul class="rs-results" id="rsResults"></ul>
+          <button type="button" class="btn btn-ghost btn-sm" id="rsMore" hidden>Show more</button>
+        </div>
+      </section>
+
+      <section id="suggestView" hidden>
+        <div class="suggest-bar no-print">
+          <p>We'll pick a whole day that hits your numbers. Don't love it? Shuffle, or swap single meals.</p>
+          <div class="suggest-btns">
+            <button class="btn btn-yellow btn-sm" id="suggestGo" type="button">Suggest a day</button>
+            <button class="btn btn-green btn-sm" id="regen" type="button" hidden>Shuffle</button>
+            <button class="btn btn-ghost btn-sm" id="useDay" type="button" hidden>Use this day</button>
+          </div>
+        </div>
+        <div class="empty" id="suggestEmpty" hidden></div>
+        <ol class="plan-list" id="plan"></ol>
+      </section>
+      <div class="grocery" id="grocery" hidden></div>
+    </div>
+  </section>
+</main>
+
+<script src="site.config.js?v=1794544721"></script>
+<script src="data/recipes.js?v=1794544721"></script>
+<script src="js/common.js?v=1794544721"></script>
+<script src="js/planner.js?v=1794544721"></script>
+</body>
+</html>

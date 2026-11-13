@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MacrosMadeEz</title>
+<meta name="robots" content="noindex">
+<!-- Old link format (country.html?c=code). Countries now live at country/<code>/ -->
+<script>
+  var c = new URLSearchParams(location.search).get("c");
+  location.replace(c ? "country/" + encodeURIComponent(c) + "/" : "world.html");
+</script>
+</head>
+<body><a href="world.html">World kitchen</a></body>
+</html>

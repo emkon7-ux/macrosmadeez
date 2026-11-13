@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": ["firebase.json", "**/.*"],
+    "headers": [
+      { "source": "**/*.@(webp|png|jpg|svg|woff2)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] },
+      { "source": "**/*.@(js|css)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
+      { "source": "**/*.html", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+    ]
+  }
+}
